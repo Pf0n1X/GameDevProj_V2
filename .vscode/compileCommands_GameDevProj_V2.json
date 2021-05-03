@@ -1,0 +1,47 @@
+[
+	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\GameDevProj_V2.Build.cs",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\GameDevProj_V2.cpp",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\GameDevProj_V2.h",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\GameDevProj_V2GameModeBase.cpp",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\GameDevProj_V2GameModeBase.h",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\MyPawn.cpp",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\MyPawn.h",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\ShooterCharacter.cpp",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\ShooterCharacter.h",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	}
+]
