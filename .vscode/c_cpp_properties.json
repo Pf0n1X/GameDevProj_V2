@@ -3,7 +3,7 @@
         {
             "name": "GameDevProj_V2Editor Editor Win64 Development (GameDevProj_V2)",
             "intelliSenseMode": "msvc-x64",
-            "compileCommands": "C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2.json",
+            "compileCommands": "C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2 - Copy\\.vscode\\compileCommands_GameDevProj_V2.json",
             "cStandard": "c17",
             "cppStandard": "c++17"
         }
