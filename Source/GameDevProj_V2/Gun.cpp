@@ -17,6 +17,11 @@ AGun::AGun()
 	Mesh->SetupAttachment(Root);
 }
 
+void AGun::PullTrigger() 
+{
+	UE_LOG(LogTemp, Warning, TEXT("You've been shot!"));
+}
+
 // Called when the game starts or when spawned
 void AGun::BeginPlay()
 {
