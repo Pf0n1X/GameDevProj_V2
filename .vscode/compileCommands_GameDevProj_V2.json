@@ -75,6 +75,16 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
 	},
 	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\KillEmAllGameMode.cpp",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\KillEmAllGameMode.h",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
 		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\MyPawn.cpp",
 		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
 		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"

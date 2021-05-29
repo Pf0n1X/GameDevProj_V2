@@ -3,3 +3,8 @@
 
 #include "GameDevProj_V2GameModeBase.h"
 
+
+void AGameDevProj_V2GameModeBase::PawnKilled(APawn* PawnKilled) 
+{
+    
+}
