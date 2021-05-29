@@ -1,5 +1,25 @@
 [
 	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\BTTask_ClearBlackboardValue.cpp",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\BTTask_ClearBlackboardValue.h",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\BTTask_Shoot.cpp",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\BTTask_Shoot.h",
+		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
 		"file": "C:\\\\Users\\\\Tomer\\\\Documents\\\\Unreal Projects\\\\GameDevProj_V2\\\\Source\\\\GameDevProj_V2\\\\GameDevProj_V2.Build.cs",
 		"command": "cl.exe @\"C:\\Users\\Tomer\\Documents\\Unreal Projects\\GameDevProj_V2\\.vscode\\compileCommands_GameDevProj_V2\\GameDevProj_V2.182.rsp\"",
 		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
