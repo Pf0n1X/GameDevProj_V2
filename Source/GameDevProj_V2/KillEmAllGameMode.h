@@ -16,4 +16,7 @@ class GAMEDEVPROJ_V2_API AKillEmAllGameMode : public AGameDevProj_V2GameModeBase
 
 public:
 	virtual void PawnKilled(APawn* PawnKilled) override;
+
+private:
+	void EndGame(bool bIsPlayerWinner);
 };
