@@ -40,6 +40,8 @@ void AGun::PullTrigger()
 			HitActor->TakeDamage(Damage, DamageEvent, OwnerController, this);
 		}
 	}
+
+	Ammo = FMath::Max(0, Ammo - 1);
 }
 
 // Called when the game starts or when spawned
@@ -52,6 +54,11 @@ void AGun::BeginPlay()
 void AGun::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
+
+int32 AGun::GetAmmo() const
+{
+	return Ammo;
 }
 
 bool AGun::GunTrace(FHitResult &Hit, FVector &ShotDirection)

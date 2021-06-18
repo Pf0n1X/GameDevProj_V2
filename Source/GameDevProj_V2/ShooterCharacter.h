@@ -38,6 +38,9 @@ public:
 
 	void Shoot();
 
+	UFUNCTION(BlueprintPure)
+	int32 GetAmmo() const;
+
 private:
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);

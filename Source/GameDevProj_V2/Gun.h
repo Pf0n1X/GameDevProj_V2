@@ -25,6 +25,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintPure)
+	int32 GetAmmo() const;
+
 private:
 	UPROPERTY(VisibleAnywhere)
 	USceneComponent* Root;
@@ -49,6 +52,9 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	float Damage = 10;
+	
+	UPROPERTY(EditAnywhere)
+	int32 Ammo = 10;
 
 	bool GunTrace(FHitResult& Hit, FVector& ShotDirection);
 

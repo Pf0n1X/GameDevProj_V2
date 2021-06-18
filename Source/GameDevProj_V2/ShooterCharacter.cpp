@@ -19,11 +19,6 @@ void AShooterCharacter::BeginPlay()
 
 	Health = MaxHealth;
 
-	// Gun = GetWorld()->SpawnActor<AGun>(GunClass);
-	// GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_None);
-	// Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("weaponSocket"));
-	// Gun->SetOwner(this);
-
 	GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_None);
 
 	for (TSubclassOf<AGun> GunClass : GunClasses)
@@ -155,4 +150,9 @@ void AShooterCharacter::Shoot()
 {
 	// Gun->PullTrigger();
 	Guns.GetData()[ActiveIndex]->PullTrigger();
+}
+
+int32 AShooterCharacter::GetAmmo() const
+{
+	return Guns[ActiveIndex]->GetAmmo();
 }
