@@ -56,6 +56,9 @@ private:
 	UPROPERTY(EditAnywhere)
 	int32 Ammo = 10;
 
+	UPROPERTY(EditAnywhere)
+	USoundBase* NoAmmoSound;
+
 	bool GunTrace(FHitResult& Hit, FVector& ShotDirection);
 
 	AController* GetOwnerController() const;
