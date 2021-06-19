@@ -28,6 +28,9 @@ public:
 	UFUNCTION(BlueprintPure)
 	int32 GetAmmo() const;
 
+	UFUNCTION()
+	void FillAmmo();
+
 private:
 	UPROPERTY(VisibleAnywhere)
 	USceneComponent* Root;
@@ -53,6 +56,9 @@ private:
 	UPROPERTY(EditAnywhere)
 	float Damage = 10;
 	
+	UPROPERTY(EditAnywhere)
+	int32 MaxAmmo = 10;
+
 	UPROPERTY(EditAnywhere)
 	int32 Ammo = 10;
 

@@ -41,6 +41,12 @@ public:
 	UFUNCTION(BlueprintPure)
 	int32 GetAmmo() const;
 
+	UFUNCTION(BlueprintPure)
+	bool IsAllowedToPickup() const;
+
+	UFUNCTION()
+	void FillActiveGunAmmo();
+
 private:
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);
@@ -69,4 +75,7 @@ private:
 	TArray<AGun*> Guns;
 
 	int ActiveIndex;
+
+	UPROPERTY(EditAnywhere)
+	bool IsAllowedToPickupLoot = true;;
 };

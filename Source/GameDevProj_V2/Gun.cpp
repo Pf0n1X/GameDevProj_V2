@@ -69,6 +69,11 @@ int32 AGun::GetAmmo() const
 	return Ammo;
 }
 
+void AGun::FillAmmo() 
+{
+	Ammo = MaxAmmo;
+}
+
 bool AGun::GunTrace(FHitResult &Hit, FVector &ShotDirection)
 {
 	AController *OwnerController = GetOwnerController();

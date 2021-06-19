@@ -156,3 +156,13 @@ int32 AShooterCharacter::GetAmmo() const
 {
 	return Guns[ActiveIndex]->GetAmmo();
 }
+
+bool AShooterCharacter::IsAllowedToPickup() const
+{
+	return IsAllowedToPickupLoot;
+}
+
+void AShooterCharacter::FillActiveGunAmmo() 
+{
+	Guns[ActiveIndex]->FillAmmo();
+}
