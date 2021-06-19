@@ -7,6 +7,7 @@
 #include "ShooterCharacter.generated.h"
 
 class AGun;
+class UCameraComponent;
 
 UCLASS()
 class GAMEDEVPROJ_V2_API AShooterCharacter : public ACharacter
@@ -55,6 +56,13 @@ private:
 	void NextWeapon();
 	void PreviousWeapon();
 	void HideAndShowWeapons();
+	void TogglePerspective();
+
+	UPROPERTY(VisibleAnywhere)
+	UCameraComponent *FPSCamera;
+
+	UPROPERTY(VisibleAnywhere)
+	UCameraComponent *TPSCamera;
 
 	UPROPERTY(EditAnywhere)
 	float RotationRate = 10;
@@ -77,5 +85,7 @@ private:
 	int ActiveIndex;
 
 	UPROPERTY(EditAnywhere)
-	bool IsAllowedToPickupLoot = true;;
+	bool IsAllowedToPickupLoot = true;
+
+	bool IsFPSCameraActive = false;
 };

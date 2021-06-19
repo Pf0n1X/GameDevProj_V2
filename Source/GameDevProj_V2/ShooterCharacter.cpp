@@ -4,6 +4,7 @@
 #include "Gun.h"
 #include "Components/CapsuleComponent.h"
 #include "GameDevProj_V2GameModeBase.h"
+#include "Camera/CameraComponent.h"
 
 // Sets default values
 AShooterCharacter::AShooterCharacter()
@@ -34,6 +35,9 @@ void AShooterCharacter::BeginPlay()
 	{
 		Guns.GetData()[0]->SetHidden(false);
 	}
+
+	FPSCamera = Cast<UCameraComponent>(GetDefaultSubobjectByName(TEXT("FPS_Camera")));
+	TPSCamera = Cast<UCameraComponent>(GetDefaultSubobjectByName(TEXT("Camera")));
 }
 
 bool AShooterCharacter::IsDead() const
@@ -67,6 +71,7 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent *PlayerInputCo
 	PlayerInputComponent->BindAction(TEXT("Shoot"), EInputEvent::IE_Pressed, this, &AShooterCharacter::Shoot);
 	PlayerInputComponent->BindAction(TEXT("NextWeapon"), EInputEvent::IE_Pressed, this, &AShooterCharacter::NextWeapon);
 	PlayerInputComponent->BindAction(TEXT("PreviousWeapon"), EInputEvent::IE_Pressed, this, &AShooterCharacter::PreviousWeapon);
+	PlayerInputComponent->BindAction(TEXT("TogglePerspective"), EInputEvent::IE_Pressed, this, &AShooterCharacter::TogglePerspective);
 }
 
 float AShooterCharacter::TakeDamage(float DamageAmount, struct FDamageEvent const &DamageEvent, class AController *EventInstigator, AActor *DamageCauser)
@@ -144,6 +149,36 @@ void AShooterCharacter::HideAndShowWeapons()
 
 	// Show the selected one.
 	Guns[ActiveIndex]->SetActorHiddenInGame(false);
+}
+
+void AShooterCharacter::TogglePerspective() 
+{
+	if (IsFPSCameraActive)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("T1"));
+		// FPSCamera = Cast<UCameraComponent>(GetDefaultSubobjectByName(TEXT("FPS_Camera")));
+
+		if (FPSCamera != nullptr)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("T3"));
+			FPSCamera->SetActive(false);
+			TPSCamera->SetActive(true);
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("T2"));
+		// UCameraComponent *FPSCamera = Cast<UCameraComponent>(GetDefaultSubobjectByName(TEXT("FPS_Camera")));
+
+		if (FPSCamera != nullptr)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("T3"));
+			FPSCamera->SetActive(true);
+			TPSCamera->SetActive(false);
+		}
+	}
+
+	IsFPSCameraActive = !IsFPSCameraActive;
 }
 
 void AShooterCharacter::Shoot()
