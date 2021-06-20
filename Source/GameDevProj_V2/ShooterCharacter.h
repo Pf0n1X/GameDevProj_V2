@@ -7,6 +7,7 @@
 #include "ShooterCharacter.generated.h"
 
 class AGun;
+class APatrolPath;
 class UCameraComponent;
 
 UCLASS()
@@ -38,6 +39,8 @@ public:
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 
 	void Shoot();
+
+	TArray<FVector> GetPatrolPath();
 
 	UFUNCTION(BlueprintPure)
 	int32 GetAmmo() const;
@@ -88,4 +91,7 @@ private:
 	bool IsAllowedToPickupLoot = true;
 
 	bool IsFPSCameraActive = false;
+
+	UPROPERTY(EditInstanceOnly, Meta = (MakeEditWidget = true))
+	APatrolPath* PatrolPathPoints;
 };

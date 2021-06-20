@@ -2,6 +2,7 @@
 
 #include "ShooterCharacter.h"
 #include "Gun.h"
+#include "PatrolPath.h"
 #include "Components/CapsuleComponent.h"
 #include "GameDevProj_V2GameModeBase.h"
 #include "Camera/CameraComponent.h"
@@ -185,6 +186,11 @@ void AShooterCharacter::Shoot()
 {
 	// Gun->PullTrigger();
 	Guns.GetData()[ActiveIndex]->PullTrigger();
+}
+
+TArray<FVector> AShooterCharacter::GetPatrolPath() 
+{
+	return PatrolPathPoints->GetPatrolPathPoints();
 }
 
 int32 AShooterCharacter::GetAmmo() const
