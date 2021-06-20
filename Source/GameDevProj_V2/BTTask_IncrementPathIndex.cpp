@@ -23,4 +23,5 @@ EBTNodeResult::Type UBTTask_IncrementPathIndex::ExecuteTask(UBehaviorTreeCompone
     OwnerComp.GetBlackboardComponent()->SetValueAsInt(GetSelectedBlackboardKey(), PathIndex);
 
     return EBTNodeResult::Succeeded;
+    
 }
