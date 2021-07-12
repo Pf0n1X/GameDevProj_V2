@@ -3,6 +3,8 @@
 #include "ShooterPlayerController.h"
 #include "TimerManager.h"
 #include "Blueprint/UserWidget.h"
+#include "Kismet/GameplayStatics.h"
+#include "ShooterGameInstance.h"
 
 void AShooterPlayerController::BeginPlay()
 {
@@ -22,17 +24,43 @@ void AShooterPlayerController::GameHasEnded(class AActor *EndGameFocus, bool bIs
 
     HUD->RemoveFromViewport();
 
+    UShooterGameInstance* ShooterGameInstance = Cast<UShooterGameInstance>(GetGameInstance());
+    
+    if (ShooterGameInstance == nullptr)
+    {
+        return;
+    }
+
     if (bIsWinner)
     {
-        UUserWidget *WinScreen = CreateWidget(this, WinScreenClass);
+        ShooterGameInstance->CurLevel++;
 
-        if (WinScreen != nullptr)
+        if (ShooterGameInstance->CurLevel == LevelsAmount)
         {
-            WinScreen->AddToViewport();
+            ShooterGameInstance->CurLevel = 0;
+
+            // Show Win Screen
+            UUserWidget *WinScreen = CreateWidget(this, WinScreenClass);
+
+            if (WinScreen != nullptr)
+            {
+                WinScreen->AddToViewport();
+            }
+        }
+        else
+        {
+            // Show Next Level Screen
+            UUserWidget *NextLevelScreen = CreateWidget(this, NextLevelScreenClass);
+
+            if (NextLevelScreen != nullptr)
+            {
+                NextLevelScreen->AddToViewport();
+            }
         }
     }
     else
     {
+        ShooterGameInstance->CurLevel = 0;
         UUserWidget *LoseScreen = CreateWidget(this, LoseScreenClass);
 
         if (LoseScreen != nullptr)
@@ -42,4 +70,16 @@ void AShooterPlayerController::GameHasEnded(class AActor *EndGameFocus, bool bIs
     }
 
     GetWorldTimerManager().SetTimer(RestartTimer, this, &APlayerController::RestartLevel, RestartDelay);
+}
+
+void AShooterPlayerController::RestartLevel()
+{
+    Super::RestartLevel();
+
+    UShooterGameInstance* ShooterGameInstance = Cast<UShooterGameInstance>(GetGameInstance());
+
+    if (ShooterGameInstance != nullptr)
+    {
+        UGameplayStatics::OpenLevel(GetWorld(), LevelNames[ShooterGameInstance->CurLevel]);
+    }
 }

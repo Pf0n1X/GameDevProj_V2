@@ -17,6 +17,9 @@ class GAMEDEVPROJ_V2_API AShooterPlayerController : public APlayerController
 public:
 	virtual void GameHasEnded(class AActor *EndGameFocus = nullptr, bool bIsWinner = false) override;
 
+	/** Restarts the current level */
+	virtual void RestartLevel() override;
+
 protected:
 	virtual void BeginPlay() override;
 
@@ -28,6 +31,9 @@ private:
 	TSubclassOf<class UUserWidget> LoseScreenClass;
 
 	UPROPERTY(EditAnywhere)
+	TSubclassOf<class UUserWidget> NextLevelScreenClass;
+
+	UPROPERTY(EditAnywhere)
 	TSubclassOf<class UUserWidget> HUDClass;
 
 	UPROPERTY(EditAnywhere)
@@ -37,5 +43,10 @@ private:
 
 	UPROPERTY()
 	UUserWidget *HUD;
+
+	UPROPERTY(EditAnywhere)
+	int32 LevelsAmount = 2;
+
+	FName LevelNames[2] = {FName("Level0"), FName("Level1")};
 };
 
