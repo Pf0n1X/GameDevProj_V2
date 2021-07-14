@@ -45,8 +45,8 @@ private:
 	UUserWidget *HUD;
 
 	UPROPERTY(EditAnywhere)
-	int32 LevelsAmount = 2;
+	int32 LevelsAmount = 3;
 
-	FName LevelNames[2] = {FName("Level0"), FName("Level1")};
+	FName LevelNames[3] = {FName("Level0"), FName("Level1"),FName("Level2")};
 };
 
