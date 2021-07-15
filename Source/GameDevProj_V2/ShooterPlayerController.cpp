@@ -5,6 +5,7 @@
 #include "Blueprint/UserWidget.h"
 #include "Kismet/GameplayStatics.h"
 #include "ShooterGameInstance.h"
+#include "ShooterCharacter.h"
 
 void AShooterPlayerController::BeginPlay()
 {
@@ -24,8 +25,16 @@ void AShooterPlayerController::GameHasEnded(class AActor *EndGameFocus, bool bIs
 
     HUD->RemoveFromViewport();
 
-    UShooterGameInstance* ShooterGameInstance = Cast<UShooterGameInstance>(GetGameInstance());
-    
+    // Disable Player Shooting
+    AShooterCharacter *PlayerCharacter = Cast<AShooterCharacter>(GetPawn());
+
+    if (PlayerCharacter != nullptr)
+    {
+        PlayerCharacter->AllowShooting(false);
+    }
+
+    UShooterGameInstance *ShooterGameInstance = Cast<UShooterGameInstance>(GetGameInstance());
+
     if (ShooterGameInstance == nullptr)
     {
         return;
@@ -76,10 +85,18 @@ void AShooterPlayerController::RestartLevel()
 {
     Super::RestartLevel();
 
-    UShooterGameInstance* ShooterGameInstance = Cast<UShooterGameInstance>(GetGameInstance());
+    UShooterGameInstance *ShooterGameInstance = Cast<UShooterGameInstance>(GetGameInstance());
 
     if (ShooterGameInstance != nullptr)
     {
         UGameplayStatics::OpenLevel(GetWorld(), LevelNames[ShooterGameInstance->CurLevel]);
+
+        //  Enable Player Shooting
+        AShooterCharacter *PlayerCharacter = Cast<AShooterCharacter>(GetPawn());
+
+        if (PlayerCharacter != nullptr)
+        {
+            PlayerCharacter->AllowShooting(true);
+        }
     }
 }

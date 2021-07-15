@@ -51,6 +51,9 @@ public:
 	UFUNCTION()
 	void FillActiveGunAmmo();
 
+	UFUNCTION()
+	void AllowShooting(bool IsAllowed);
+
 private:
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);
@@ -94,4 +97,8 @@ private:
 
 	UPROPERTY(EditInstanceOnly, Meta = (MakeEditWidget = true))
 	APatrolPath* PatrolPathPoints;
+
+
+	UPROPERTY(EditAnywhere)
+	bool IsAllowedToShoot = true;
 };

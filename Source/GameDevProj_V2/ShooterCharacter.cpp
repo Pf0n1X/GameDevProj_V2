@@ -184,8 +184,10 @@ void AShooterCharacter::TogglePerspective()
 
 void AShooterCharacter::Shoot()
 {
-	// Gun->PullTrigger();
-	Guns.GetData()[ActiveIndex]->PullTrigger();
+	if (IsAllowedToShoot)
+	{
+		Guns.GetData()[ActiveIndex]->PullTrigger();
+	}
 }
 
 TArray<FVector> AShooterCharacter::GetPatrolPath() 
@@ -206,4 +208,9 @@ bool AShooterCharacter::IsAllowedToPickup() const
 void AShooterCharacter::FillActiveGunAmmo() 
 {
 	Guns[ActiveIndex]->FillAmmo();
+}
+
+void AShooterCharacter::AllowShooting(bool IsAllowed) 
+{
+	IsAllowedToShoot = IsAllowed;
 }
