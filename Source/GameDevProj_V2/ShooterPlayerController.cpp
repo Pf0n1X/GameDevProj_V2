@@ -11,6 +11,18 @@ void AShooterPlayerController::BeginPlay()
 {
     Super::BeginPlay();
 
+    FString mapName = GetWorld()->GetMapName();
+    mapName.RemoveFromStart(GetWorld()->StreamingLevelsPrefix);
+
+    if (!mapName.Equals(TEXT("MainMenu")))
+    {
+        StartHUD();
+    }
+}
+
+void AShooterPlayerController::StartHUD()
+{
+
     HUD = CreateWidget(this, HUDClass);
 
     if (HUD != nullptr)

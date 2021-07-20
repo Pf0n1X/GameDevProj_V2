@@ -47,6 +47,9 @@ private:
 	UPROPERTY(EditAnywhere)
 	int32 LevelsAmount = 3;
 
+	UFUNCTION(BlueprintCallable)
+	void StartHUD();
+
 	FName LevelNames[3] = {FName("Level0"), FName("Level1"),FName("Level2")};
 };
 
