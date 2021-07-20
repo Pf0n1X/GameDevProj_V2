@@ -103,3 +103,8 @@ AController *AGun::GetOwnerController() const
 
 	return OwnerPawn->GetController();
 }
+
+float AGun::GetDamage() 
+{
+	return Damage;
+}

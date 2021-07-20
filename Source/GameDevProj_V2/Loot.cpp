@@ -22,8 +22,8 @@ ALoot::ALoot()
 	TriggerCapsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Trigger Capsule"));
 	TriggerCapsule->InitCapsuleSize(55.f, 96.0f);
 	TriggerCapsule->SetCollisionProfileName(TEXT("Trigger"));
-	TriggerCapsule->OnComponentBeginOverlap.AddDynamic(this, &ALoot::OnOverlapBegin); 
-	TriggerCapsule->OnComponentEndOverlap.AddDynamic(this, &ALoot::OnOverlapEnd); 
+	TriggerCapsule->OnComponentBeginOverlap.AddDynamic(this, &ALoot::OnOverlapBegin);
+	TriggerCapsule->OnComponentEndOverlap.AddDynamic(this, &ALoot::OnOverlapEnd);
 	TriggerCapsule->SetupAttachment(Root);
 
 	// Add the ParticleSystem
@@ -44,36 +44,34 @@ void ALoot::Tick(float DeltaTime)
 }
 
 void ALoot::OnOverlapBegin(UPrimitiveComponent *OverlappedComponent,
-						 AActor *OtherActor,
-						 UPrimitiveComponent *OtherComp,
-						 int32 OtherBodyIndex,
-						 bool bFromSweep,
-						 const FHitResult &SweepResult)
+						   AActor *OtherActor,
+						   UPrimitiveComponent *OtherComp,
+						   int32 OtherBodyIndex,
+						   bool bFromSweep,
+						   const FHitResult &SweepResult)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Collision"));
-	// Play the pickup particle system
-	UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), PickupParticles, GetActorLocation());
-
-	// Play Sound
-	UGameplayStatics::PlaySoundAtLocation(GetWorld(), PickupSound, GetActorLocation());
 
 	// Give Ammo to player
-	AShooterCharacter * ShooterCharacter = Cast<AShooterCharacter>(OtherActor);
-	UE_LOG(LogTemp, Warning, TEXT("T1"));
-	if (ShooterCharacter != nullptr)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("T2"));
-		ShooterCharacter->FillActiveGunAmmo();
-	}
+	AShooterCharacter *ShooterCharacter = Cast<AShooterCharacter>(OtherActor);
 
-	// Destroy Actor
-	Destroy();
+	if (ShooterCharacter != nullptr && ShooterCharacter->IsPlayerControlled())
+	{
+		// Play the pickup particle system
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), PickupParticles, GetActorLocation());
+
+		// Play Sound
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), PickupSound, GetActorLocation());
+
+		ShooterCharacter->FillActiveGunAmmo();
+
+		// Destroy Actor
+		Destroy();
+	}
 }
 
 void ALoot::OnOverlapEnd(class UPrimitiveComponent *OverlappedComp,
-					  class AActor *OtherActor,
-					  class UPrimitiveComponent *OtherComp,
-					  int32 OtherBodyIndex) 
+						 class AActor *OtherActor,
+						 class UPrimitiveComponent *OtherComp,
+						 int32 OtherBodyIndex)
 {
-	
 }
