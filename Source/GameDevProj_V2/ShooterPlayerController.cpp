@@ -86,6 +86,7 @@ void AShooterPlayerController::GameHasEnded(class AActor *EndGameFocus, bool bIs
 
         if (LoseScreen != nullptr)
         {
+            ClientStartCameraShake(DeathShake);
             LoseScreen->AddToViewport();
         }
     }

@@ -26,7 +26,7 @@ protected:
 private:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<class UUserWidget> WinScreenClass;
-	
+
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<class UUserWidget> LoseScreenClass;
 
@@ -39,6 +39,9 @@ private:
 	UPROPERTY(EditAnywhere)
 	float RestartDelay = 5;
 
+	UPROPERTY(EditAnywhere, Category = "Effects")
+	TSubclassOf<UMatineeCameraShake> DeathShake;
+
 	FTimerHandle RestartTimer;
 
 	UPROPERTY()
@@ -50,6 +53,5 @@ private:
 	UFUNCTION(BlueprintCallable)
 	void StartHUD();
 
-	FName LevelNames[3] = {FName("Level0"), FName("Level1"),FName("Level2")};
+	FName LevelNames[3] = {FName("Level0"), FName("Level1"), FName("Level2")};
 };
-
