@@ -54,6 +54,9 @@ public:
 	UFUNCTION()
 	void AllowShooting(bool IsAllowed);
 
+	UFUNCTION()
+	void GetKIlled(class AController *EventInstigator, AActor *DamageCauser);
+
 private:
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);
