@@ -140,7 +140,7 @@ void AShooterCharacter::PreviousWeapon()
 	HideAndShowWeapons();
 }
 
-void AShooterCharacter::HideAndShowWeapons() 
+void AShooterCharacter::HideAndShowWeapons()
 {
 	// Hide all the weapons
 	for (AGun *Gun : Guns)
@@ -152,7 +152,7 @@ void AShooterCharacter::HideAndShowWeapons()
 	Guns[ActiveIndex]->SetActorHiddenInGame(false);
 }
 
-void AShooterCharacter::TogglePerspective() 
+void AShooterCharacter::TogglePerspective()
 {
 	if (IsFPSCameraActive)
 	{
@@ -190,7 +190,7 @@ void AShooterCharacter::Shoot()
 	}
 }
 
-TArray<FVector> AShooterCharacter::GetPatrolPath() 
+TArray<FVector> AShooterCharacter::GetPatrolPath()
 {
 	return PatrolPathPoints->GetPatrolPathPoints();
 }
@@ -205,12 +205,28 @@ bool AShooterCharacter::IsAllowedToPickup() const
 	return IsAllowedToPickupLoot;
 }
 
-void AShooterCharacter::FillActiveGunAmmo() 
+void AShooterCharacter::FillActiveGunAmmo()
 {
 	Guns[ActiveIndex]->FillAmmo();
 }
 
-void AShooterCharacter::AllowShooting(bool IsAllowed) 
+void AShooterCharacter::AllowShooting(bool IsAllowed)
 {
 	IsAllowedToShoot = IsAllowed;
+}
+
+void AShooterCharacter::GetKIlled(class AController *EventInstigator, AActor *DamageCauser)
+{
+	Health = 0;
+	UE_LOG(LogTemp, Warning, TEXT("Health left %f"), Health);
+
+	AGameDevProj_V2GameModeBase *GameMode = GetWorld()->GetAuthGameMode<AGameDevProj_V2GameModeBase>();
+
+	if (GameMode != nullptr)
+	{
+		GameMode->PawnKilled(this);
+	}
+
+	DetachFromControllerPendingDestroy();
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
