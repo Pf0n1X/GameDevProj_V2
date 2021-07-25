@@ -37,3 +37,13 @@ bool AShooterAIController::IsDead() const
 
     return true;
 }
+
+bool AShooterAIController::CanSeePlayer() 
+{
+    return IsSeeingPlayer;
+}
+
+void AShooterAIController::SetCanSeePlayer(bool CanSee) 
+{
+    IsSeeingPlayer = CanSee;
+}
