@@ -17,6 +17,8 @@ class GAMEDEVPROJ_V2_API AShooterAIController : public AAIController
 public:
 	virtual void Tick(float DeltaTime) override;
 	bool IsDead() const;
+
+	UFUNCTION(BlueprintCallable)
 	bool CanSeePlayer();
 
 	UFUNCTION(BlueprintCallable)
@@ -30,5 +32,5 @@ private:
 	class UBehaviorTree* AIBehavior;
 
 	UPROPERTY(EditAnywhere)
-	bool IsSeeingPlayer = false;;
+	bool IsSeeingPlayer = false;
 };
