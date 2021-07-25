@@ -54,7 +54,7 @@ public:
 	UFUNCTION()
 	void AllowShooting(bool IsAllowed);
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void GetKIlled(class AController *EventInstigator, AActor *DamageCauser);
 
 private:
