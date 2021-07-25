@@ -18,6 +18,12 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	bool IsDead() const;
 
+	UFUNCTION(BlueprintCallable)
+	bool CanSeePlayer();
+
+	UFUNCTION(BlueprintCallable)
+	void SetCanSeePlayer(bool CanSee);
+
 protected:
 	virtual void BeginPlay() override;
 
@@ -25,4 +31,6 @@ private:
 	UPROPERTY(EditAnywhere);
 	class UBehaviorTree* AIBehavior;
 
+	UPROPERTY(EditAnywhere)
+	bool IsSeeingPlayer = false;
 };
