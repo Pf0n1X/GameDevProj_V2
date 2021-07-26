@@ -41,6 +41,9 @@ public:
 
 	float GetDamage();
 
+	UFUNCTION(BlueprintCallable)
+	void PlayMuzzleEffects() const;
+
 protected:
 	UPROPERTY(EditAnywhere)
 	UParticleSystem *MuzzleFlash;

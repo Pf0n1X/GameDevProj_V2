@@ -184,9 +184,11 @@ void AShooterCharacter::TogglePerspective()
 
 void AShooterCharacter::Shoot()
 {
-	if (IsAllowedToShoot)
+	AGun *ActiveGun = GetActiveGun();
+
+	if (IsAllowedToShoot && ActiveGun != nullptr)
 	{
-		Guns.GetData()[ActiveIndex]->PullTrigger();
+		ActiveGun->PullTrigger();
 	}
 }
 
@@ -197,7 +199,14 @@ TArray<FVector> AShooterCharacter::GetPatrolPath()
 
 int32 AShooterCharacter::GetAmmo() const
 {
-	return Guns[ActiveIndex]->GetAmmo();
+	AGun *ActiveGun = GetActiveGun();
+
+	if (ActiveGun != nullptr)
+	{
+		return ActiveGun->GetAmmo();
+	}
+
+	return 0;
 }
 
 bool AShooterCharacter::IsAllowedToPickup() const
@@ -207,7 +216,12 @@ bool AShooterCharacter::IsAllowedToPickup() const
 
 void AShooterCharacter::FillActiveGunAmmo()
 {
-	Guns[ActiveIndex]->FillAmmo();
+	AGun *ActiveGun = GetActiveGun();
+
+	if (ActiveGun != nullptr)
+	{
+		GetActiveGun()->FillAmmo();
+	}
 }
 
 void AShooterCharacter::AllowShooting(bool IsAllowed)
@@ -229,4 +243,9 @@ void AShooterCharacter::GetKIlled(class AController *EventInstigator, AActor *Da
 
 	DetachFromControllerPendingDestroy();
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+}
+
+AGun *AShooterCharacter::GetActiveGun() const
+{
+	return Guns[ActiveIndex];
 }

@@ -108,3 +108,9 @@ float AGun::GetDamage()
 {
 	return Damage;
 }
+
+void AGun::PlayMuzzleEffects() const
+{
+	UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, Mesh, TEXT("MuzzleFlashSocket"));
+	UGameplayStatics::SpawnSoundAttached(MuzzleSound, Mesh, TEXT("MuzzleFlashSocket"));
+}

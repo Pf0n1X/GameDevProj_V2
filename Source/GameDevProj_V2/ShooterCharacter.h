@@ -57,6 +57,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void GetKIlled(class AController *EventInstigator, AActor *DamageCauser);
 
+	UFUNCTION(BLueprintCallable)
+	AGun* GetActiveGun() const;
+
 private:
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);
@@ -90,7 +93,7 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	TArray<AGun*> Guns;
-
+	
 	int ActiveIndex;
 
 	UPROPERTY(EditAnywhere)
