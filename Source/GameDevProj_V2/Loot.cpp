@@ -22,8 +22,6 @@ ALoot::ALoot()
 	TriggerCapsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Trigger Capsule"));
 	TriggerCapsule->InitCapsuleSize(55.f, 96.0f);
 	TriggerCapsule->SetCollisionProfileName(TEXT("Trigger"));
-	TriggerCapsule->OnComponentBeginOverlap.AddDynamic(this, &ALoot::OnOverlapBegin);
-	TriggerCapsule->OnComponentEndOverlap.AddDynamic(this, &ALoot::OnOverlapEnd);
 	TriggerCapsule->SetupAttachment(Root);
 
 	// Add the ParticleSystem
@@ -35,6 +33,12 @@ ALoot::ALoot()
 void ALoot::BeginPlay()
 {
 	Super::BeginPlay();
+
+	// These are called here and not int he constructor because when they are not being called in
+	// BeginPlay, isntance error occur.
+	// For example, only a copied object's events were being called or not being called at all.
+	TriggerCapsule->OnComponentBeginOverlap.AddDynamic(this, &ALoot::OnOverlapBegin);
+	TriggerCapsule->OnComponentEndOverlap.AddDynamic(this, &ALoot::OnOverlapEnd);
 }
 
 // Called every frame
